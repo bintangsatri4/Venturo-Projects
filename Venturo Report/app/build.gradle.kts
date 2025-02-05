@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
-
 android {
     namespace = "com.venturo.venturoreport"
     compileSdk = 35
@@ -49,6 +48,11 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.coil.compose)
+    implementation (libs.accompanist.placeholder)
+    implementation (libs.koin.androidx.compose)
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.koin.androidx.compose.v320)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

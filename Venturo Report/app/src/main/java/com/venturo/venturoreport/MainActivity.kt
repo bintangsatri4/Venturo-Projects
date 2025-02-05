@@ -7,10 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.venturo.venturoreport.ui.screens.order.components.OrderScreen
 import com.venturo.venturoreport.ui.theme.VenturoReportTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +21,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             VenturoReportTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    val navController = rememberNavController()
+                    OrderScreen(
+                        navController = navController,
+                        orderId = 1, // Replace with actual order ID
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -30,18 +33,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun OrderScreenPreview() {
     VenturoReportTheme {
-        Greeting("Android")
+        val navController = rememberNavController()
+        OrderScreen(
+            navController = navController,
+            orderId = 1 // Replace with actual order ID
+        )
     }
 }
